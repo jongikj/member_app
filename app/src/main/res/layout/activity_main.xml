@@ -20,21 +20,24 @@
         android:id="@+id/bt_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="50dp"
         android:text="로그인"
-        android:textSize="40dp" />
+        android:textSize="50dp" />
 
     <TextView
         android:id="@+id/tv_log"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25dp" />
+        android:layout_marginTop="200dp"
+        android:text="계정이 없으면 생성하세여"
+        android:gravity="center"
+        android:textSize="20dp" />
 
     <Button
-        android:id="@+id/bt_regist"
+        android:id="@+id/bt_join"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="회원가입"
-        android:textSize="40dp" />
+        android:textSize="50dp" />
 
 </LinearLayout>
