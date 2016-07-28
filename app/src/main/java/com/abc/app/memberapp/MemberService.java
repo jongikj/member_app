@@ -12,8 +12,8 @@ public interface MemberService {
     public MemberBean findById(String id);
     public List<MemberBean> findByName(String findName);
     public boolean existId(String id);
-    public MemberBean findBy();
     public void logout(MemberBean bean);
     public List<MemberBean> list();
     public List<?> findBy(String keyword);
+    public MemberBean findBy();
 }
