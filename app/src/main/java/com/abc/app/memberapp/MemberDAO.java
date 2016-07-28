@@ -1,6 +1,7 @@
 package com.abc.app.memberapp;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -75,7 +76,7 @@ public class MemberDAO extends SQLiteOpenHelper {
         String sql = "select * from member";
         List<MemberBean> list = new ArrayList<MemberBean>();
         SQLiteDatabase db = this.getReadableDatabase(); //list는 읽어오기 때문에 Readable
-        db.execSQL(sql);
+        Cursor cursor = db.rawQuery(sql, null);
         return list;
     }
 
@@ -84,7 +85,7 @@ public class MemberDAO extends SQLiteOpenHelper {
         String sql = "select * from member where id = ?";
         MemberBean temp = null;
         SQLiteDatabase db = this.getReadableDatabase();
-        db.execSQL(sql);
+        Cursor cursor = db.rawQuery(sql, null);
         return temp;
     }
 
@@ -93,7 +94,7 @@ public class MemberDAO extends SQLiteOpenHelper {
         String sql = "select * from member where name = ?";
         List<MemberBean> list = new ArrayList<MemberBean>();
         SQLiteDatabase db = this.getReadableDatabase();
-        db.execSQL(sql);
+        Cursor cursor = db.rawQuery(sql, null);
         return list;
     }
 
@@ -101,7 +102,7 @@ public class MemberDAO extends SQLiteOpenHelper {
     public int count() {
         String sql = "select count(*) as count from member";
         SQLiteDatabase db = this.getReadableDatabase();
-        db.execSQL(sql);
+        Cursor cursor = db.rawQuery(sql, null);
         int count = 0;
         return count;
     }
@@ -125,7 +126,7 @@ public class MemberDAO extends SQLiteOpenHelper {
         int result = 0;
         String sql = "select count(*) as count from member where id = ?";
         SQLiteDatabase db = this.getReadableDatabase();
-        db.execSQL(sql);
+        Cursor cursor = db.rawQuery(sql, null);
         return existOK;
     }
 }
