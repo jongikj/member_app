@@ -2,6 +2,7 @@ package com.abc.app.memberapp;
 
 import android.content.Context;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,22 +17,8 @@ public class MemberServiceImpl implements MemberService{
     }
 
     @Override
-    public String regist(MemberBean bean) {
-        String msg = "";
-        MemberBean temp = this.findById(bean.getId());
-        if (temp == null) {
-            System.out.println(bean.getId() + "가 존재하지 않음, 가입 가능한 ID");
-            int result = dao.insert(bean);
-            if (result == 1) {
-                msg = "success";
-            } else {
-                msg = "fail";
-            }
-        } else {
-            System.out.println(bean.getId() + "가 존재함, 가입 불가능한 ID");
-            msg = "fail";
-        }
-        return msg;
+    public void regist(MemberBean bean) {
+        dao.insert(bean);
     }
 
     @Override
@@ -59,7 +46,7 @@ public class MemberServiceImpl implements MemberService{
     }
 
     @Override
-    public List<MemberBean> list() {
+    public ArrayList<MemberBean> list() {
         return dao.list();
     }
 
@@ -87,5 +74,9 @@ public class MemberServiceImpl implements MemberService{
 
     public MemberBean findBy(){
         return session;
+    }
+
+    public boolean login(MemberBean bean){
+        return dao.login(bean);
     }
 }

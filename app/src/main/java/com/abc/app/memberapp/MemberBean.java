@@ -4,8 +4,16 @@ package com.abc.app.memberapp;
  * Created by hb2010 on 2016-07-27.
  */
 public class MemberBean {
-    private String id, pw, name, ssn, email, phone;
+    private String id, pw, name, ssn, email, phone, profile;
     private int photo;
+
+    public String getProfile() {
+        return profile;
+    }
+
+    public void setProfile(String profile) {
+        this.profile = profile;
+    }
 
     public String getId() {
         return id;

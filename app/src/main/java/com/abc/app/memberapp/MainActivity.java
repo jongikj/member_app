@@ -40,7 +40,15 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 Toast.makeText(MainActivity.this,
                         "ID : " + et_id.getText().toString() + " PW : " + et_pw.getText().toString(),
                         Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, HomeActivity.class));
+                MemberBean bean = new MemberBean();
+                bean.setId(et_id.getText().toString());
+                bean.setPw(et_pw.getText().toString());
+
+                if (service.login(bean)){
+                    startActivity(new Intent(this, HomeActivity.class));
+                } else {
+                    startActivity(new Intent(this, MainActivity.class));
+                }
                 break;
         }
     }
